@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Center the login container */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card styling */
+.login-card {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    width: 750px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section - Form */
+.login-form-container {
+    width: 50%;
+    padding-right: 30px;
+}
+
+.login-form-container h2 {
+    margin-bottom: 10px;
+}
+
+.login-form-container p {
+    font-size: 14px;
+    color: gray;
+}
+
+/* Social Icons */
+
+
+/* Social Icons Container */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+    margin-top: 10px;
+  }
+  
+  /* Circular Icon Design */
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 50%; /* Makes it round */
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Hover Effect */
+  .icon-circle:hover {
+    background-color: black;
+    color: white;
+  }
+  
+.social-icons i {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.social-icons i:hover {
+    color: #007bff;
+}
+
+/* Right Section - Image */
+.login-image-container {
+    width: 50%;
+    position: relative;
+}
+
+.login-image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Key Icon */
+.key-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: black;
+}
+/* Container for the text and lines */
+.or-sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  /* Horizontal line */
+  .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: gray;
+  }
+  
+  /* Text styling */
+  .or-sign-in p {
+    margin: 0;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  

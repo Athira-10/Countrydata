@@ -57,7 +57,7 @@ const Home = () => {
     beforeChange: (oldIndex, newIndex) => setActiveIndex(newIndex),
   };
 
-  const activeCountry = filteredCountries[activeIndex]; // Get currently active country
+  const activeCountry = filteredCountries[activeIndex]; 
 
   return (
     <div className="container">
@@ -111,7 +111,7 @@ const Home = () => {
       {!loading && !error && (
         <div className="slider-card">
           <div className="row">
-            {/* First Card (Slider) */}
+           
             <div className="card col-md-8">
               <div className="card-body">
                 <Slider ref={sliderRef} {...sliderSettings} className="mt-4">
@@ -141,7 +141,7 @@ const Home = () => {
 
            
             <div className="card col-md-3 mx-3">
-              <div className="card-body text-center">
+              <div className="card-bodyy text-center">
                 {activeCountry && (
                   <>
                     <img

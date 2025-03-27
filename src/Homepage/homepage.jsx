@@ -17,7 +17,7 @@ const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
-  const [menuOpen, setMenuOpen] = useState(false); 
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -57,37 +57,36 @@ const Home = () => {
     beforeChange: (oldIndex, newIndex) => setActiveIndex(newIndex),
   };
 
+  const activeCountry = filteredCountries[activeIndex]; // Get currently active country
+
   return (
     <div className="container">
-    
       <div className="d-flex justify-content-between align-items-center py-3">
         <h4>Countries</h4>
 
         {isMobile ? (
-  <div className="mobile-menu-container">
-    
-    <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
-      <i className="fas fa-bars"></i>
-    </button>
+          <div className="mobile-menu-container">
+            <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
+              <i className="fas fa-bars"></i>
+            </button>
 
-   
-    {menuOpen && (
-      <div className="mobile-menu">
-        {["All", "Asia", "Europe"].map((region) => (
-          <span
-            key={region}
-            className={`menu-item ${filter === region ? "active" : ""}`}
-            onClick={() => {
-              setFilter(region);
-              setMenuOpen(false); 
-            }}
-          >
-            {region}
-          </span>
-        ))}
-      </div>
-    )}
-  </div>
+            {menuOpen && (
+              <div className="mobile-menu">
+                {["All", "Asia", "Europe"].map((region) => (
+                  <span
+                    key={region}
+                    className={`menu-item ${filter === region ? "active" : ""}`}
+                    onClick={() => {
+                      setFilter(region);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    {region}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
         ) : (
           <div className="filter-options">
             {["All", "Asia", "Europe"].map((region) => (
@@ -111,30 +110,51 @@ const Home = () => {
 
       {!loading && !error && (
         <div className="slider-card">
-          <div className="card">
-            <div className="card-body">
-              <Slider ref={sliderRef} {...sliderSettings} className="mt-4">
-                {filteredCountries.slice(0, 10).map((country, index) => (
-                  <div key={index} className="slider-item">
-                    <img src={country.flag} alt={country.name} className="slider-flag" />
-                    <h5 className="country-name">{country.name}</h5>
-                  </div>
-                ))}
-              </Slider>
-
-              <div className="arrow-dot-row">
-                <button className="custom-arrow" onClick={() => sliderRef.current?.slickPrev()}>
-                  ←
-                </button>
-                <ul className="custom-dots">
-                  {filteredCountries.slice(0, 10).map((_, i) => (
-                    <li key={i} className={`dot ${i === activeIndex ? "active-dot" : ""}`}></li>
+          <div className="row">
+            {/* First Card (Slider) */}
+            <div className="card col-md-8">
+              <div className="card-body">
+                <Slider ref={sliderRef} {...sliderSettings} className="mt-4">
+                  {filteredCountries.slice(0, 10).map((country, index) => (
+                    <div key={index} className="slider-item">
+                      <img src={country.flag} alt={country.name} className="slider-flag" />
+                      <h5 className="country-name">{country.name}</h5>
+                    </div>
                   ))}
-                </ul>
-                <button className="custom-arrow" onClick={() => sliderRef.current?.slickNext()}>
-                  →
-                </button>
+                </Slider>
+
+                <div className="arrow-dot-row">
+                  <button className="custom-arrow" onClick={() => sliderRef.current?.slickPrev()}>
+                    ←
+                  </button>
+                  <ul className="custom-dots">
+                    {filteredCountries.slice(0, 10).map((_, i) => (
+                      <li key={i} className={`dot ${i === activeIndex ? "active-dot" : ""}`}></li>
+                    ))}
+                  </ul>
+                  <button className="custom-arrow" onClick={() => sliderRef.current?.slickNext()}>
+                    →
+                  </button>
+                </div>
               </div>
+            </div>
+
+           
+            <div className="card col-md-3 mx-3">
+              <div className="card-body text-center">
+                {activeCountry && (
+                  <>
+                    <img
+                      src={activeCountry.flag}
+                      alt={activeCountry.name}
+                      className="slider-flag"
+                      style={{ width: "100px", height: "60px", objectFit: "cover" }} 
+                    />
+                    <h5 className="country-name">{activeCountry.name}</h5>
+                  </>
+                )}
+              </div>
+
             </div>
           </div>
         </div>

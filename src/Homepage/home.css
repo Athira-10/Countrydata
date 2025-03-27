@@ -52,12 +52,12 @@
 
 
 .slider-flag {
-  width: 400px;
-  height: 250px;
+  width: 400px;  
+  height: 250px; 
   object-fit: cover;
   border-radius: 10px;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto; 
 }
 
 

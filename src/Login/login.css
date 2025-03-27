@@ -81,6 +81,7 @@ body {
 .login-image-container {
     width: 50%;
     position: relative;
+    margin-left: 80px; /* Adjust this value as needed */
 }
 
 .login-image-container img {

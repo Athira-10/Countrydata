@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import loginIllustration from "../images/loginimage.jpg"; 
+import loginIllustration from "../images/imagekey.png"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./login.css";
@@ -41,7 +41,7 @@ const Login = () => {
         <div className="login-form-container">
           <h2 className="fw-bold">Sign In</h2>
           <p>
-            New user? <a href="/register">Create an account</a>
+            New user? <a href="#">Create an account</a>
           </p>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -92,9 +92,9 @@ const Login = () => {
         </div>
 
       
-        <div className="login-image-container">
+        <div className="login-image-container ">
           <img src={loginIllustration} alt="Login Illustration" className="img-fluid" />
-          <i className="fas fa-key key-icon"></i>
+          
         </div>
       </div>
     </div>

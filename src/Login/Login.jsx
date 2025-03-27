@@ -43,6 +43,7 @@ const Login = () => {
           <p>
             New user? <a href="#">Create an account</a>
           </p>
+          <div className="mt-4">
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <input
@@ -75,6 +76,7 @@ const Login = () => {
               Sign In
             </button>
           </form>
+          </div>
         
           <div className="or-sign-in">
   <div className="line"></div>

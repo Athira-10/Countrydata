@@ -9,7 +9,7 @@
   .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Space between icons */
+    gap: 15px; 
     margin-top: 10px;
   }
   .icon-circle {
@@ -19,13 +19,13 @@
     align-items: center;
     justify-content: center;
     border: 2px solid black;
-    border-radius: 50%; /* Makes it round */
+    border-radius: 50%; 
     font-size: 20px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
   }
   
-  /* Hover Effect */
+  
   .icon-circle:hover {
     background-color: black;
     color: white;

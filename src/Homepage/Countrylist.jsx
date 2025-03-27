@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./countrylist.css"; 
-const CountryList = () => {
+
+const CountryList = ({ filter }) => {  
   const [countries, setCountries] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
   const [loading, setLoading] = useState(true);
@@ -22,6 +23,9 @@ const CountryList = () => {
     fetchCountries();
   }, []);
 
+
+  const filteredCountries = filter === "All" ? countries : countries.filter((c) => c.region === filter);
+
   const loadMore = () => {
     setVisibleCount((prevCount) => prevCount + 6);
   };
@@ -34,7 +38,7 @@ const CountryList = () => {
       {!loading && !error && (
         <>
           <div className="country-grid">
-            {countries.slice(0, visibleCount).map((country, index) => (
+            {filteredCountries.slice(0, visibleCount).map((country, index) => (
               <div key={index} className="country-card">
                 <img src={country.flag} alt={country.name} className="country-flag" />
                 <div className="country-info">
@@ -45,7 +49,7 @@ const CountryList = () => {
             ))}
           </div>
 
-          {visibleCount < countries.length && (
+          {visibleCount < filteredCountries.length && (
             <button className="load-more" onClick={loadMore}>Load more</button>
           )}
         </>

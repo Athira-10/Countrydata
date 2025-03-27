@@ -16,12 +16,12 @@ const Home = () => {
   const [error, setError] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1000);
     };
 
     window.addEventListener("resize", handleResize);
@@ -56,20 +56,38 @@ const Home = () => {
     arrows: false,
     beforeChange: (oldIndex, newIndex) => setActiveIndex(newIndex),
   };
-  
 
   return (
     <div className="container">
+    
       <div className="d-flex justify-content-between align-items-center py-3">
         <h4>Countries</h4>
-        
-        
+
         {isMobile ? (
-          <select className="filter-dropdown" value={filter} onChange={(e) => setFilter(e.target.value)}>
-            <option value="All">All</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-          </select>
+  <div className="mobile-menu-container">
+    
+    <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
+      <i className="fas fa-bars"></i>
+    </button>
+
+   
+    {menuOpen && (
+      <div className="mobile-menu">
+        {["All", "Asia", "Europe"].map((region) => (
+          <span
+            key={region}
+            className={`menu-item ${filter === region ? "active" : ""}`}
+            onClick={() => {
+              setFilter(region);
+              setMenuOpen(false); 
+            }}
+          >
+            {region}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
         ) : (
           <div className="filter-options">
             {["All", "Asia", "Europe"].map((region) => (
@@ -104,7 +122,6 @@ const Home = () => {
                 ))}
               </Slider>
 
-            
               <div className="arrow-dot-row">
                 <button className="custom-arrow" onClick={() => sliderRef.current?.slickPrev()}>
                   ←
@@ -127,7 +144,7 @@ const Home = () => {
       {error && <p className="text-center text-danger mt-4">{error}</p>}
 
       <div className="mt-5">
-        <CountryList />
+        <CountryList filter={filter} />
       </div>
 
       <Footer />

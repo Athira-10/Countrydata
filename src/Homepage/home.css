@@ -1,16 +1,9 @@
-
-
-
-
-
-/* Centering container */
 .container {
   max-width: 900px;
   margin: auto;
 }
 
-/* Filter Options */
-/* Default Desktop View */
+
 .filter-options span {
   margin-left: 15px;
   cursor: pointer;
@@ -22,7 +15,7 @@
   text-decoration: underline;
 }
 
-/* Mobile Dropdown */
+
 .filter-dropdown {
   padding: 5px 10px;
   font-size: 16px;
@@ -31,7 +24,7 @@
 }
 
 
-/* Welcome Section */
+
 .welcome-container {
   display: flex;
   align-items: center;
@@ -51,33 +44,31 @@
   background-color: black;
 }
 
-/* Slider */
+
 .slider-item {
   text-align: center;
   padding: 20px;
 }
 
-/* Country Image */
-/* Country Image - Make it Larger & Center */
+
 .slider-flag {
-  width: 400px;  /* Increased size */
-  height: 250px; /* Increased size */
+  width: 400px;  
+  height: 250px; 
   object-fit: cover;
   border-radius: 10px;
   display: block;
-  margin: 0 auto; /* Centers the image */
+  margin: 0 auto; 
 }
 
 
-/* Country Name */
+
 .country-name {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-/* Arrows and Dots in the Same Row */
-/* Arrows and Dots in the Same Row */
+
 .arrow-dot-row {
   display: flex;
   align-items: center;
@@ -86,7 +77,7 @@
   margin-top: 15px;
 }
 
-/* Custom Arrows */
+
 .custom-arrow {
   font-size: 20px;
   cursor: pointer;
@@ -99,7 +90,7 @@
   justify-content: center;
 }
 
-/* Custom Dots */
+
 .custom-dots {
   display: flex;
   align-items: center;
@@ -109,7 +100,7 @@
   margin: 0;
 }
 
-/* Dot Styling */
+
 .dot {
   width: 10px;
   height: 10px;
@@ -118,7 +109,7 @@
   cursor: pointer;
 }
 
-/* Active Dot */
+
 .active-dot {
   background: black;
 }

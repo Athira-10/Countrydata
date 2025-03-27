@@ -5,7 +5,7 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Center the login container */
+
 .login-container {
     height: 100vh;
     display: flex;
@@ -13,7 +13,7 @@ body {
     align-items: center;
 }
 
-/* Card styling */
+
 .login-card {
     display: flex;
     background-color: white;
@@ -23,7 +23,7 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Left Section - Form */
+
 .login-form-container {
     width: 50%;
     padding-right: 30px;
@@ -38,18 +38,15 @@ body {
     color: gray;
 }
 
-/* Social Icons */
 
-
-/* Social Icons Container */
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Space between icons */
+    gap: 15px; 
     margin-top: 10px;
   }
   
-  /* Circular Icon Design */
+
   .icon-circle {
     width: 50px;
     height: 50px;
@@ -57,13 +54,13 @@ body {
     align-items: center;
     justify-content: center;
     border: 2px solid black;
-    border-radius: 50%; /* Makes it round */
+    border-radius: 50%; 
     font-size: 20px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
   }
   
-  /* Hover Effect */
+
   .icon-circle:hover {
     background-color: black;
     color: white;
@@ -80,7 +77,7 @@ body {
     color: #007bff;
 }
 
-/* Right Section - Image */
+
 .login-image-container {
     width: 50%;
     position: relative;
@@ -91,7 +88,7 @@ body {
     height: auto;
 }
 
-/* Key Icon */
+
 .key-icon {
     position: absolute;
     top: 10px;
@@ -99,7 +96,7 @@ body {
     font-size: 30px;
     color: black;
 }
-/* Container for the text and lines */
+
 .or-sign-in {
     display: flex;
     align-items: center;
@@ -108,14 +105,14 @@ body {
     margin: 15px 0;
   }
   
-  /* Horizontal line */
+  
   .line {
     flex-grow: 1;
     height: 1px;
     background-color: gray;
   }
   
-  /* Text styling */
+  
   .or-sign-in p {
     margin: 0;
     font-weight: bold;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import loginIllustration from "../images/loginimage.jpg"; // Replace with your image
+import loginIllustration from "../images/loginimage.jpg"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./login.css";
@@ -28,7 +28,7 @@ const Login = () => {
       return;
     }
 
-    setError(""); // Clear error if validation passes
+    setError(""); 
     console.log("Password validated successfully! Navigating to homepage...");
     navigate("/homepage");
   };
@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <div className="login-container d-flex align-items-center justify-content-center">
       <div className="login-card shadow p-4 d-flex">
-        {/* Left Side - Login Form */}
+       
         <div className="login-form-container">
           <h2 className="fw-bold">Sign In</h2>
           <p>
@@ -75,7 +75,7 @@ const Login = () => {
               Sign In
             </button>
           </form>
-          {/* <hr /> */}
+        
           <div className="or-sign-in">
   <div className="line"></div>
   <p className="text-center">Or Sign In With</p>
@@ -91,7 +91,7 @@ const Login = () => {
 
         </div>
 
-        {/* Right Side - Image Illustration */}
+      
         <div className="login-image-container">
           <img src={loginIllustration} alt="Login Illustration" className="img-fluid" />
           <i className="fas fa-key key-icon"></i>

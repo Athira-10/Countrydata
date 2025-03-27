@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./countrylist.css"; // Add styles in this file
-
+import "./countrylist.css"; 
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);

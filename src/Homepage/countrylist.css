@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    width: 900px; /* Matches slider container */
+    width: 900px; 
     margin: 0 auto;
 }
 
@@ -20,7 +20,7 @@
     border: 1px solid #000;
     padding: 15px;
     background: white;
-    width: 400px; /* Matches slider */
+    width: 400px; 
     height: 100px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -58,16 +58,16 @@ h5, p {
     font-size: 16px;
 }
 
-/* Fixed Load More button styling */
+
 .load-more {
-    margin-top: 20px; /* Space from grid */
+    margin-top: 20px; 
     padding: 12px 24px;
     background: black;
     color: white;
     border: none;
     cursor: pointer;
-    display: inline-block; /* Prevents full-width issue */
-    width: auto; /* Only as wide as needed */
+    display: inline-block; 
+    width: auto;
     text-align: center;
     border-radius: 5px;
 }

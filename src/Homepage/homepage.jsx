@@ -16,17 +16,10 @@ const Home = () => {
   const [error, setError] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  // Update mobile state on window resize
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+
+
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -63,7 +56,7 @@ const Home = () => {
       <div className="d-flex justify-content-between align-items-center py-3">
         <h4>Countries</h4>
         
-        {/* Responsive Filter: Dropdown on Mobile, Inline Text on Desktop */}
+   
         {isMobile ? (
           <select className="filter-dropdown" value={filter} onChange={(e) => setFilter(e.target.value)}>
             <option value="All">All</option>
@@ -104,7 +97,7 @@ const Home = () => {
                 ))}
               </Slider>
 
-              {/* Custom Arrows & Dots */}
+           
               <div className="arrow-dot-row">
                 <button className="custom-arrow" onClick={() => sliderRef.current?.slickPrev()}>
                   ←

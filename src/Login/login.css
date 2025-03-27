@@ -5,17 +5,17 @@ body {
     background-color: #f5f5f5;
 }
 
+
 .login-container {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
+
 
 .login-card {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping for smaller screens */
     background-color: white;
     border-radius: 10px;
     width: 750px;
@@ -23,7 +23,7 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Form container */
+
 .login-form-container {
     width: 50%;
     padding-right: 30px;
@@ -38,38 +38,50 @@ body {
     color: gray;
 }
 
-/* Social icons */
+
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 15px; 
     margin-top: 10px;
-}
+  }
+  
 
-.icon-circle {
-    width: 40px;
-    height: 40px;
+  .icon-circle {
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid black;
-    border-radius: 50%;
-    font-size: 18px;
+    border-radius: 50%; 
+    font-size: 20px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-}
+  }
+  
 
-.icon-circle:hover {
+  .icon-circle:hover {
     background-color: black;
     color: white;
+  }
+  
+.social-icons i {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #333;
 }
 
-/* Image container */
+.social-icons i:hover {
+    color: #007bff;
+}
+
+
 .login-image-container {
     width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    margin-left: 80px; 
 }
 
 .login-image-container img {
@@ -77,8 +89,38 @@ body {
     height: auto;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+
+.key-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: black;
+}
+
+.or-sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  
+  .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: gray;
+  }
+  
+  
+  .or-sign-in p {
+    margin: 0;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 768px) {
     .login-card {
         flex-direction: column;
         align-items: center;

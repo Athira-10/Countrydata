@@ -21,6 +21,7 @@ root.render(
 <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login />} />
+        <Route path='/Countrydata' element={<Login />} />
         <Route path='/homepage' element={<Home />} />
         <Route path='/footer' element={<Footer />} />
         <Route path='/Countrylist' element={<CountryList />} />

@@ -12,91 +12,112 @@ const Login = () => {
   const navigate = useNavigate();
 
   const validatePassword = (password) => {
-    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()])[A-Za-z\d@$!%*?&#^()]{8,}$/;
+    const regex =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()])[A-Za-z\d@$!%*?&#^()]{8,}$/;
     return regex.test(password);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Password entered:", password);
-    console.log("Validation result:", validatePassword(password));
-
     if (!validatePassword(password)) {
-      setError("Password must be at least 8 characters long with 1 uppercase, 1 number, and 1 symbol.");
+      setError(
+        "Password must be at least 8 characters long with 1 uppercase, 1 number, and 1 symbol."
+      );
       return;
     }
 
     setError("");
-    console.log("Password validated successfully! Navigating to homepage...");
     navigate("/homepage");
   };
 
-
   return (
-    <div className="login-container d-flex align-items-center justify-content-center">
-      <div className="login-card shadow p-4 d-flex">
-
-        <div className="login-form-container">
-          <h2 className="fw-bold">Sign In</h2>
-          <p>
-            New user? <a href="#">Create an account</a>
+    <div className="login-wrapper d-flex align-items-center justify-content-center">
+      <div className="login-card d-flex shadow">
+        {/* LEFT: FORM SECTION */}
+        <div className="login-form px-5 py-4">
+          <h2 className="fw-bold mb-2">Sign In</h2>
+          <p className="text-muted mb-4">
+            New user?{" "}
+            <a href="#" className="text-primary text-decoration-none">
+              Create an account
+            </a>
           </p>
-          <div className="mt-4">
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
+
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Username or email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="d-flex align-items-center justify-content-between mb-3">
+              <div className="form-check">
                 <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Username or email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
+                  type="checkbox"
+                  className="form-check-input"
+                  id="keepSignedIn"
                 />
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="mb-3 form-check">
-                <input type="checkbox" className="form-check-input" id="keepSignedIn" />
-                <label className="form-check-label" htmlFor="keepSignedIn">
+                <label
+                  className="form-check-label small text-muted"
+                  htmlFor="keepSignedIn"
+                >
                   Keep me signed in
                 </label>
               </div>
-              {error && <p className="text-danger">{error}</p>}
-              <button type="submit" className="btn btn-dark w-100">
-                Sign In
-              </button>
-            </form>
-          </div>
+            </div>
 
-          <div className="or-sign-in">
-            <div className="line"></div>
-            <p className="text-center">Or Sign In With</p>
-            <div className="line"></div>
+            {error && <p className="text-danger small">{error}</p>}
+
+            <button type="submit" className="btn btn-dark w-100 mb-3">
+              Sign In
+            </button>
+          </form>
+
+          <div className="divider my-4 d-flex align-items-center">
+            <div className="flex-grow-1 border-top"></div>
+            <p className="mx-2 mb-0 small text-muted">Or Sign In With</p>
+            <div className="flex-grow-1 border-top"></div>
           </div>
 
           <div className="social-icons text-center">
-            <div className="icon-circle"><i className="fab fa-google"></i></div>
-            <div className="icon-circle"><i className="fab fa-facebook"></i></div>
-            <div className="icon-circle"><i className="fab fa-linkedin"></i></div>
-            <div className="icon-circle"><i className="fab fa-twitter"></i></div>
+            <div className="icon-circle">
+              <i className="fab fa-google"></i>
+            </div>
+            <div className="icon-circle">
+              <i className="fab fa-facebook-f"></i>
+            </div>
+            <div className="icon-circle">
+              <i className="fab fa-linkedin-in"></i>
+            </div>
+            <div className="icon-circle">
+              <i className="fab fa-twitter"></i>
+            </div>
           </div>
-
         </div>
 
-
-        <div className="login-image-container ">
-          <img src={loginIllustration} alt="Login Illustration" className="img-fluid" />
-
+        {/* RIGHT: IMAGE SECTION */}
+        <div className="login-illustration d-flex align-items-center justify-content-center bg-light">
+          <img
+            src={loginIllustration}
+            alt="Login Illustration"
+            className="img-fluid illustration-img"
+          />
         </div>
       </div>
     </div>

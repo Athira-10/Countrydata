@@ -84,14 +84,13 @@ const Home = () => {
         <div className="container d-flex justify-content-between align-items-center">
           <h2 className="fw-bold mb-0">Countries</h2>
 
-          
+
           <ul className="nav d-none d-md-flex">
             {["All", "Asia", "Europe"].map((region) => (
               <li key={region} className="nav-item">
                 <button
-                  className={`nav-link btn btn-link ${
-                    filter === region ? "active" : ""
-                  }`}
+                  className={`nav-link btn btn-link ${filter === region ? "active" : ""
+                    }`}
                   onClick={() => setFilter(region)}
                 >
                   {region}
@@ -113,9 +112,8 @@ const Home = () => {
                 {["All", "Asia", "Europe"].map((region) => (
                   <div
                     key={region}
-                    className={`menu-item ${
-                      filter === region ? "active" : ""
-                    }`}
+                    className={`menu-item ${filter === region ? "active" : ""
+                      }`}
                     onClick={() => {
                       setFilter(region);
                       setMenuOpen(false);
@@ -131,40 +129,15 @@ const Home = () => {
       </header>
 
       <main className="container my-5">
-    
+
         <section className="text-center mb-5">
           <h2 className="welcome-divider text-uppercase fw-bold">Welcome</h2>
         </section>
 
- 
+
         <section className="promo-section mb-5">
           <div className="row">
-            <div className="col-lg-8 mb-4 mb-lg-0">
-              <div className="carousel-main border border-primary rounded p-2">
-                {!loading && !error && (
-                  <Slider ref={sliderRef} {...sliderSettings}>
-                    {filteredCountries.slice(0, 4).map((country, i) => (
-                      <div key={i} className="slider-item">
-                        <img
-                          src={country.flag}
-                          alt={country.name}
-                          className="slider-flag"
-                        />
-                        <h5 className="country-name">{country.name}</h5>
-                      </div>
-                    ))}
-                  </Slider>
-                )}
-                {loading && (
-                  <p className="text-center my-5">Loading countries...</p>
-                )}
-                {error && (
-                  <p className="text-center text-danger my-5">{error}</p>
-                )}
-              </div>
-            </div>
-
-            <div className="col-lg-4">
+            <div className="col-lg-4 order-1 order-lg-2 mb-4 mb-lg-0">
               <div className="side-promo rounded overflow-hidden">
                 {activeCountry ? (
                   <img
@@ -181,8 +154,31 @@ const Home = () => {
                 )}
               </div>
             </div>
+
+            <div className="col-lg-8 order-2 order-lg-1">
+              <div className="carousel-main border border-primary rounded p-2">
+                {!loading && !error && (
+                  <Slider ref={sliderRef} {...sliderSettings}>
+                    {filteredCountries.slice(0, 4).map((country, i) => (
+                      <div key={i} className="slider-item">
+                        <img
+                          src={country.flag}
+                          alt={country.name}
+                          className="slider-flag"
+                        />
+                        <h5 className="country-name">{country.name}</h5>
+                      </div>
+                    ))}
+                  </Slider>
+                )}
+                {loading && <p className="text-center my-5">Loading countries...</p>}
+                {error && <p className="text-center text-danger my-5">{error}</p>}
+              </div>
+            </div>
           </div>
         </section>
+
+
 
         <CountryList filter={filter} />
       </main>

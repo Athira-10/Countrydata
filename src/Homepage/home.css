@@ -235,12 +235,12 @@ body {
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
   .slider-flag {
     height: 300px;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .slider-flag {
     height: 230px;
   }

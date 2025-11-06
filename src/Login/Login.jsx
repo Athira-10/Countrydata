@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import loginIllustration from "../images/imagekey.png";
+import loginIllustration from "../images/imagekey.png"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./login.css";
@@ -32,91 +32,84 @@ const Login = () => {
   };
 
   return (
-    <div className="login-wrapper d-flex align-items-center justify-content-center">
-      <div className="login-card d-flex shadow">
-        {/* LEFT: FORM SECTION */}
-        <div className="login-form px-5 py-4">
-          <h2 className="fw-bold mb-2">Sign In</h2>
-          <p className="text-muted mb-4">
-            New user?{" "}
-            <a href="#" className="text-primary text-decoration-none">
-              Create an account
-            </a>
-          </p>
+    <div className="container-fluid main-container">
+   
 
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Username or email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+      <div className="row align-items-center justify-content-center w-100">
+      
+        <div className="col-lg-5 col-md-7 col-sm-10 col-12 form-container">
+          <div className="form-wrapper">
+            <h1>Sign In</h1>
+            <p>
+              New user?{" "}
+              <a href="#" className="text-decoration-none text-primary">
+                Create an account
+              </a>
+            </p>
 
-            <div className="d-flex align-items-center justify-content-between mb-3">
-              <div className="form-check">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
                 <input
-                  type="checkbox"
+                  type="email"
+                  className="form-control"
+                  placeholder="Username or email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="mb-4">
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="form-check mb-4">
+                <input
                   className="form-check-input"
+                  type="checkbox"
                   id="keepSignedIn"
                 />
                 <label
-                  className="form-check-label small text-muted"
+                  className="form-check-label"
                   htmlFor="keepSignedIn"
                 >
                   Keep me signed in
                 </label>
               </div>
-            </div>
 
-            {error && <p className="text-danger small">{error}</p>}
+              {error && <p className="text-danger small">{error}</p>}
 
-            <button type="submit" className="btn btn-dark w-100 mb-3">
-              Sign In
-            </button>
-          </form>
+              <div className="d-grid">
+                <button type="submit" className="btn btn-dark-custom text-white">
+                  Sign In
+                </button>
+              </div>
+            </form>
 
-          <div className="divider my-4 d-flex align-items-center">
-            <div className="flex-grow-1 border-top"></div>
-            <p className="mx-2 mb-0 small text-muted">Or Sign In With</p>
-            <div className="flex-grow-1 border-top"></div>
-          </div>
+            <div className="separator">Or Sign In With</div>
 
-          <div className="social-icons text-center">
-            <div className="icon-circle">
-              <i className="fab fa-google"></i>
-            </div>
-            <div className="icon-circle">
-              <i className="fab fa-facebook-f"></i>
-            </div>
-            <div className="icon-circle">
-              <i className="fab fa-linkedin-in"></i>
-            </div>
-            <div className="icon-circle">
-              <i className="fab fa-twitter"></i>
+            <div className="d-flex justify-content-center gap-3">
+              <a href="#" className="social-btn"><i className="fab fa-google"></i></a>
+              <a href="#" className="social-btn"><i className="fab fa-facebook-f"></i></a>
+              <a href="#" className="social-btn"><i className="fab fa-linkedin-in"></i></a>
+              <a href="#" className="social-btn"><i className="fab fa-twitter"></i></a>
             </div>
           </div>
         </div>
 
-        {/* RIGHT: IMAGE SECTION */}
-        <div className="login-illustration d-flex align-items-center justify-content-center bg-light">
+        
+        <div className="col-lg-5 col-md-5 image-container">
           <img
             src={loginIllustration}
             alt="Login Illustration"
-            className="img-fluid illustration-img"
+            className="walking-person-img img-fluid"
           />
         </div>
       </div>

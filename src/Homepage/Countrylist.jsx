@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./countrylist.css"; 
+// import "./countrylist.css";
 
-const CountryList = ({ filter }) => {  
+const CountryList = ({ filter }) => {
   const [countries, setCountries] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(12);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await axios.get("https://restcountries.com/v2/all?fields=name,region,flag");
+        const response = await axios.get(
+          "https://restcountries.com/v2/all?fields=name,region,flag"
+        );
         setCountries(response.data);
       } catch (err) {
         setError("Failed to load countries. Please try again.");
@@ -19,42 +21,52 @@ const CountryList = ({ filter }) => {
         setLoading(false);
       }
     };
-
     fetchCountries();
   }, []);
 
+  const filteredCountries =
+    filter === "All" ? countries : countries.filter((c) => c.region === filter);
 
-  const filteredCountries = filter === "All" ? countries : countries.filter((c) => c.region === filter);
-
-  const loadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 6);
-  };
+  const loadMore = () => setVisibleCount((prev) => prev + 6);
 
   return (
-    <div className="country-list-container">
+    <section className="countries-grid">
       {loading && <p className="text-center">Loading countries...</p>}
       {error && <p className="text-center text-danger">{error}</p>}
 
       {!loading && !error && (
         <>
-          <div className="country-grid">
+          <div className="row g-4">
             {filteredCountries.slice(0, visibleCount).map((country, index) => (
-              <div key={index} className="country-card">
-                <img src={country.flag} alt={country.name} className="country-flag" />
-                <div className="country-info">
-                  <h5>{country.name}</h5>
-                  <p>{country.region}</p>
+              <div className="col-md-6" key={index}>
+                <div className="d-flex align-items-center p-3 country-card">
+                  <img
+                    src={country.flag}
+                    alt={country.name}
+                    className="rounded me-3"
+                    width="60"
+                    height="60"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <div>
+                    <h6 className="mb-0 fw-bold">{country.name}</h6>
+                    <p className="mb-0 text-muted small">{country.region}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
           {visibleCount < filteredCountries.length && (
-            <button className="load-more" onClick={loadMore}>Load more</button>
+            <div className="text-center my-5">
+              <button className="btn load-more-btn" onClick={loadMore}>
+                Load more
+              </button>
+            </div>
           )}
         </>
       )}
-    </div>
+    </section>
   );
 };
 

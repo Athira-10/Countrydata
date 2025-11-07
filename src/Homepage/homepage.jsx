@@ -16,6 +16,8 @@ const Home = () => {
   const [error, setError] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [clickedIndex, setClickedIndex] = useState(0);
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -43,10 +45,13 @@ const Home = () => {
     speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
-    beforeChange: (_, newIndex) => setActiveIndex(newIndex),
+    beforeChange: (_, newIndex) => {
+      setActiveIndex(newIndex);
+    },
     autoplay: true,
     autoplaySpeed: 2500,
     arrows: false,
+    customPaging: () => <div className="dot"></div>,
     appendDots: (dots) => (
       <div className="arrow-dot-row">
         <button
@@ -57,10 +62,29 @@ const Home = () => {
           ←
         </button>
 
-        <ul className="custom-dots">
-          {dots.map((dot, index) => (
-            <li key={index}>{dot.props.children}</li>
-          ))}
+        <ul className="custom-dots" style={{ margin: 0, padding: 0 }}>
+          {dots.map((dot, index) => {
+            return (
+              <li
+                key={index}
+                className={index === clickedIndex ? "clicked" : ""}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  sliderRef.current?.slickGoTo(index);
+                  setClickedIndex(index);
+                }}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 4px",
+                  cursor: "pointer",
+                }}
+              >
+                {dot.props.children}
+              </li>
+            );
+          })}
         </ul>
 
         <button
@@ -72,25 +96,23 @@ const Home = () => {
         </button>
       </div>
     ),
-    customPaging: () => <div className="dot"></div>,
   };
 
   const activeCountry = filteredCountries[activeIndex];
 
   return (
     <>
-
       <header className="bg-white shadow-sm py-3">
         <div className="container d-flex justify-content-between align-items-center">
           <h2 className="fw-bold mb-0">Countries</h2>
-
 
           <ul className="nav d-none d-md-flex">
             {["All", "Asia", "Europe"].map((region) => (
               <li key={region} className="nav-item">
                 <button
-                  className={`nav-link btn btn-link ${filter === region ? "active" : ""
-                    }`}
+                  className={`nav-link btn btn-link ${
+                    filter === region ? "active" : ""
+                  }`}
                   onClick={() => setFilter(region)}
                 >
                   {region}
@@ -99,12 +121,8 @@ const Home = () => {
             ))}
           </ul>
 
-
           <div className="mobile-menu-container d-md-none">
-            <button
-              className="menu-button"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
+            <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
               ☰
             </button>
             {menuOpen && (
@@ -112,8 +130,7 @@ const Home = () => {
                 {["All", "Asia", "Europe"].map((region) => (
                   <div
                     key={region}
-                    className={`menu-item ${filter === region ? "active" : ""
-                      }`}
+                    className={`menu-item ${filter === region ? "active" : ""}`}
                     onClick={() => {
                       setFilter(region);
                       setMenuOpen(false);
@@ -129,11 +146,9 @@ const Home = () => {
       </header>
 
       <main className="container my-5">
-
         <section className="text-center mb-5">
           <h2 className="welcome-divider text-uppercase fw-bold">Welcome</h2>
         </section>
-
 
         <section className="promo-section mb-5">
           <div className="row">
@@ -177,8 +192,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
-
 
         <CountryList filter={filter} />
       </main>

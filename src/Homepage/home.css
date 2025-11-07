@@ -1,38 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --text-black: #000000;
+}
+
 body {
   background-color: #f8f9fa;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+  color: var(--text-black);
+}
+
+.navbar-brand,
+h2.fw-bold {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: 0;
+  color: var(--text-black);
 }
 
 
-.navbar-brand {
-  font-weight: bold;
-}
 .nav-link {
-  font-size: 0.9rem;
-  color: #6c757d !important;
-  font-weight: 500;
-}
-.nav-link.active {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
   color: #000 !important;
-  font-weight: bold;
+  border: none;
+  background: none;
+  position: relative;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
 }
+
+.nav-link.active {
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1px;
+}
+
+.nav-link:hover {
+  color: #000;
+  opacity: 0.8;
+}
+
 
 .welcome-divider {
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: 0;
+  color: var(--text-black);
 }
+
 .welcome-divider::before,
 .welcome-divider::after {
   content: "";
   flex: 1;
   border-bottom: 1px solid #dee2e6;
 }
+
 .welcome-divider:not(:empty)::before {
   margin-right: 1.5em;
 }
+
 .welcome-divider:not(:empty)::after {
   margin-left: 1.5em;
 }
@@ -43,25 +91,73 @@ body {
   padding: 0.5rem;
   border-radius: 0.25rem;
 }
+
 .slider-item {
   text-align: center;
   padding: 20px;
 }
+
 .slider-flag {
   width: 100%;
   height: 400px;
   object-fit: cover;
   border-radius: 10px;
 }
+
 .country-name {
   margin-top: 15px;
-  font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: 0;
+  color: var(--text-black);
 }
 
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.mobile-menu-container {
+  position: relative;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.menu-item.active,
+.menu-item:hover {
+  background: #007bff;
+  color: white;
+}
 
 .arrow-dot-row {
   position: absolute;
-  bottom: 10px; 
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: inline-flex;
@@ -73,8 +169,7 @@ body {
   border-radius: 20px;
 }
 
-
-.arrow-dot-row > * {
+.arrow-dot-row>* {
   display: inline-flex;
   align-items: center;
 }
@@ -92,6 +187,7 @@ body {
   justify-content: center;
   line-height: 3;
 }
+
 .custom-arrow:hover {
   color: #007bff;
 }
@@ -102,22 +198,23 @@ body {
   align-items: center;
   justify-content: center;
   gap: 6px;
-
   margin: 0;
   padding: 0;
 }
+
 .dot {
   width: 8px;
   height: 8px;
-  background: lightgray;
+  background: grey; 
   border-radius: 50%;
   transition: background 0.3s;
 }
-.slick-dots li.slick-active .dot,
-.active-dot {
-  background: #007bff;
 
+
+.slick-dots li.slick-active button .dot {
+  background: #000 !important; 
 }
+
 
 .slick-dots li {
   margin: 0 4px;
@@ -128,12 +225,25 @@ body {
   width: auto;
   height: auto;
 }
+
 .slick-dots li button {
   padding: 0;
   border: none;
   background: none;
 }
+.custom-dots li .dot {
+  width: 8px;
+  height: 8px;
+  background: #bfbfbf; 
+  border-radius: 50%;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
 
+
+.custom-dots li.clicked .dot {
+  background: #000 !important; 
+  transform: scale(1.08);
+}
 
 
 .side-promo {
@@ -142,6 +252,7 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
 .side-promo img {
   width: 100%;
   height: 100%;
@@ -157,9 +268,11 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease-in-out;
 }
+
 .country-card:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 .country-card img {
   width: 60px;
   height: 60px;
@@ -173,13 +286,31 @@ body {
   border: none;
   padding: 10px 30px;
   border-radius: 5px;
-  font-weight: 500;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 3%;
+  text-align: center;
   transition: background 0.3s;
 }
+
 .load-more-btn:hover {
   background-color: #333;
 }
 
+
+.footer-text,
+.footer-email,
+.footer-copy {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 3%;
+  text-align: center;
+  color: var(--text-black);
+}
 
 .footer-social .btn {
   width: 40px;
@@ -191,63 +322,28 @@ body {
   border-color: #6c757d;
   color: #6c757d;
 }
+
 .footer-social .btn:hover {
   background-color: #6c757d;
   color: #fff;
 }
-
-
-.menu-button {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 5px;
-}
-.mobile-menu-container {
-  position: relative;
-}
-.mobile-menu {
-  position: absolute;
-  top: 40px;
-  right: 10px;
-  background: white;
-  border: 1px solid #ddd;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  border-radius: 5px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.menu-item {
-  font-size: 16px;
-  cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-.menu-item.active,
-.menu-item:hover {
-  background: #007bff;
-  color: white;
-}
-
 
 @media (max-width: 992px) {
   .slider-flag {
     height: 300px;
   }
 }
+
 @media (max-width: 768px) {
   .slider-flag {
     height: 230px;
   }
+
   .custom-arrow {
     font-size: 14px;
     padding: 2px 5px;
   }
+
   .dot {
     width: 7px;
     height: 7px;

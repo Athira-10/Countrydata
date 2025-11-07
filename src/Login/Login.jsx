@@ -33,10 +33,7 @@ const Login = () => {
 
   return (
     <div className="container-fluid main-container">
-   
-
       <div className="row align-items-center justify-content-center w-100">
-      
         <div className="col-lg-5 col-md-7 col-sm-10 col-12 form-container">
           <div className="form-wrapper">
             <h1>Sign In</h1>
@@ -76,10 +73,7 @@ const Login = () => {
                   type="checkbox"
                   id="keepSignedIn"
                 />
-                <label
-                  className="form-check-label"
-                  htmlFor="keepSignedIn"
-                >
+                <label className="form-check-label" htmlFor="keepSignedIn">
                   Keep me signed in
                 </label>
               </div>
@@ -104,7 +98,6 @@ const Login = () => {
           </div>
         </div>
 
-        
         <div className="col-lg-5 col-md-5 image-container">
           <img
             src={loginIllustration}

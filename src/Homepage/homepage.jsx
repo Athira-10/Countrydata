@@ -161,11 +161,8 @@ const Home = () => {
                     className="w-100 h-100 object-fit-cover"
                   />
                 ) : (
-                  <img
-                    src="https://picsum.photos/400/450?random=3"
-                    alt="Side promo"
-                    className="w-100 h-100 object-fit-cover"
-                  />
+                  ""
+                 
                 )}
               </div>
             </div>
